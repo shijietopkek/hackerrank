@@ -1,0 +1,100 @@
+#lists
+if __name__ == '__main__':
+    N = int(input())
+    arr=[]
+    for _ in range(N):
+        string = input().split(' ')
+        command=string[0]
+        if command=='insert':
+            arr.insert(int(string[1]),int(string[2]))
+        if command=='print':
+            print(arr)
+        if command=='remove':
+            arr.remove(int(string[1]))
+        if command=='append':
+            arr.append(int(string[1]))
+        if command=='sort':
+            arr.sort()
+        if command=='pop':
+            arr=arr[:-1]
+        if command=='reverse':
+            arr=arr[::-1]
+           
+#tuples
+if __name__ == '__main__':
+    n = int(input())
+    integer_list = map(int, input().split())
+    tup = tuple(integer_list)
+    print(hash(tup))
+
+#list comprehensions
+if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+    print([[i,j,k] for i in range(0,x+1) for j in range(0,y+1) for k in range(0,z+1) if i+j+k != n]) 
+
+#find the second largest number
+if __name__ == '__main__':
+    n = int(input())
+    arr = input().split(' ')
+    arr1=[]
+    arr2=[]
+    for i in arr:
+        arr1.append(int(i))
+    arr1.sort()
+    new_arr= arr1[::-1]
+    for i in range(n):
+        if new_arr[i] != new_arr[0]:
+            print(new_arr[i])
+            break;
+
+#nested lists
+if __name__ == '__main__':
+    students, second_lowests = [],[]
+    x=int(input())
+    for _ in range(x):
+        name = input()
+        score = float(input())
+        student = [name,score]
+        students.append(student)
+
+    students=sorted(students, key=lambda x:x[1])
+
+    lowest = students[0][1]
+    second_lowest=None
+    for i in range(x):
+        if students[i][1] > lowest:
+            second_lowest = students[i][1]
+            break;
+    for j in range(x):
+        if students[j][1]==second_lowest:
+            second_lowests.append(students[j])
+
+    second_lowests=sorted(second_lowests,key=lambda x:x[0])
+
+    for i in range(len(second_lowests)):
+        print(second_lowests[i][0])
+
+#finding the percentage
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+    total=0
+    for i in student_marks[query_name]:
+        total+=i
+    ans = total/len(student_marks[query_name])
+    print("%.2f"%ans)
+
+
+
+    
+
+
+    
