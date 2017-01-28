@@ -1,4 +1,4 @@
-#lists
+#1 lists
 if __name__ == '__main__':
     N = int(input())
     arr=[]
@@ -27,7 +27,7 @@ if __name__ == '__main__':
     tup = tuple(integer_list)
     print(hash(tup))
 
-#list comprehensions
+#2 list comprehensions
 if __name__ == '__main__':
     x = int(input())
     y = int(input())
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     n = int(input())
     print([[i,j,k] for i in range(0,x+1) for j in range(0,y+1) for k in range(0,z+1) if i+j+k != n]) 
 
-#find the second largest number
+#3 find the second largest number
 if __name__ == '__main__':
     n = int(input())
     arr = input().split(' ')
@@ -50,7 +50,7 @@ if __name__ == '__main__':
             print(new_arr[i])
             break;
 
-#nested lists
+#4 nested lists
 if __name__ == '__main__':
     students, second_lowests = [],[]
     x=int(input())
@@ -77,7 +77,7 @@ if __name__ == '__main__':
     for i in range(len(second_lowests)):
         print(second_lowests[i][0])
 
-#finding the percentage
+#5 finding the percentage
 if __name__ == '__main__':
     n = int(input())
     student_marks = {}
