@@ -1,0 +1,122 @@
+#1 sWaP cASE
+def swap_case(s):
+    new_string=''
+    for i in range(len(s)):
+        new_char = s[i]
+        if(new_char.isupper()):
+            new_string+=new_char.lower()
+        elif(new_char.islower()):
+            new_string+=new_char.upper()
+        else:
+            new_string+=new_char
+    return new_string
+    
+#2 String Split and Join
+def split_and_join(line):
+    # writ your code here
+    arr=line.split()
+    return "-".join(arr)
+
+#3 What's Your Name?
+def print_full_name(a, b):
+    print("Hello {} {}! You just delved into python.".format(a,b))
+    
+#4 Mutations
+def mutate_string(string, position, character):
+    return string[:position] + character + string[(position+1):]
+    
+#5 Find a string
+def count_substring(string, sub_string):
+    count=0
+    for i in range(0,len(string)):
+        if(string[i:i+len(sub_string)]==sub_string):
+            count+=1
+    return count
+    
+#6 String Validators
+if __name__ == '__main__':
+    str = input()
+    print any(c.isalnum()  for c in str)
+    print any(c.isalpha() for c in str)
+    print any(c.isdigit() for c in str)
+    print any(c.islower() for c in str)
+    print any(c.isupper() for c in str)
+
+#7 Text Alignment
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+thickness = int(input()) #This must be an odd number
+c = 'H'
+
+#Top Cone
+for i in range(thickness):
+    print((c*i).rjust(thickness-1)+c+(c*i).ljust(thickness-1))
+
+#Top Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))
+
+#Middle Belt
+for i in range((thickness+1)//2):
+    print((c*thickness*5).center(thickness*6))    
+
+#Bottom Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))    
+
+#Bottom Cone
+for i in range(thickness):
+    print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+    
+#8 Text Wrap
+def wrap(string, max_width):
+    return textwrap.fill(string, max_width)
+
+#9 Designer Door Mat
+height,width = input().split()
+
+for i in range(0,int(height)//2):
+    print((".|."*(1+2*i)).center(int(width),"-"))
+
+print("WELCOME".center(int(width),"-"))
+
+for i in range(int(height)//2-1,-1,-1):
+    print((".|."*(1+2*i)).center(int(width),"-"))
+    
+#10 String Formatting
+def decimaltobase(decimal, base):
+    ans=''
+    hexMap =  {0:'0',1:'1',2:'2',3:'3',4:'4',5:'5',6:'6',7:'7',8:'8',9:'9',10:'A',11:'B',12:'C',13:'D',14:'E',15:'F'}
+    while decimal > 0:
+        res = decimal%base
+        ans = hexMap[res] + ans
+        decimal //= base
+    return ans
+
+def print_formatted(num):
+    # your code goes here
+    width = len(decimaltobase(num,2))+1
+    for i in range(1, num+1):
+        print("{:>{width1}}{:>{width}}{:>{width}}{:>{width}}".format(i,decimaltobase(i,8),decimaltobase(i,16),decimaltobase(i,2),width=width,width1=width-1))
+
+#11 Capitalize
+def capitalize(string):
+    arr,arr1 = string.strip().split(' '),[]
+    for i in arr:
+        arr1.append(i.capitalize())
+    word=" ".join(arr1)
+    return word
+
+print(capitalize(input()))
+
+#12 Merge-the-Tools
+def merge_the_tools(string,k):
+    for i in range(0,len(string),k):
+        ans=''
+        new_str = string[i:i+k]
+        for j in range(k):
+            if new_str[j] in ans:
+                continue
+            else:
+                ans+=new_str[j]
+        print(ans)
